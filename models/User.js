@@ -27,6 +27,18 @@ const UserSchema= new mongoose.Schema({
    type:String,
    default:"",
   },
+  goldslots:{
+    type:Number,
+    default:0
+  },
+  silverslots:{
+    type:Number,
+    default:0
+  },
+  platinumslots:{
+    type:Number,
+    default:0
+  },
 },
 {timestamps:true}
 );
