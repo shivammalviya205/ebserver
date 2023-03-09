@@ -46,9 +46,12 @@ export const getOneData=async(req,res)=>{
 
 export const getSlotsData=async(req,res)=>{
   const {id}=req.params;
+  console.log(id)
   try{
     const slots=await AppointmentModel.find({expertId:id});
+    console.log(slots);
     return res.status(201).json(slots);
+    
   }catch(err){
     res.status(501).json({ error: err.message });
   }
@@ -59,6 +62,7 @@ export const getAllSlotsData=async(req,res)=>{
   try{
     const slots=await AppointmentModel.find();
     return res.status(201).json(slots);
+    console.log(slots);
   }catch(err){
     res.status(501).json({ error: err.message });
   }
