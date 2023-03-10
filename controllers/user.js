@@ -27,12 +27,12 @@ export const bookAppointment=async(req,res)=>{
 
 export const updateSlot=async(req,res)=>{
     const{userId}=req.params;
-    console.log(req.params);
+    //console.log(req.params);
     try{
       const{plan}=req.body;
-      console.log(plan);
+      // console.log(plan);
       const user= await User.findById(userId);
-      console.log(user);
+      //console.log(user);
       if(plan==='Gold'){
         console.log(user.goldslots);
         user.goldslots++;

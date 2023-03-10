@@ -49,7 +49,7 @@ export const getSlotsData=async(req,res)=>{
   console.log(id)
   try{
     const slots=await AppointmentModel.find({expertId:id});
-    console.log(slots);
+    //console.log(slots);
     return res.status(201).json(slots);
     
   }catch(err){

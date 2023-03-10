@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url";
-
+import Razorpay from 'razorpay'
 
 import {connectDb} from './db.js';
 import {register} from './controllers/auth.js';
@@ -13,6 +13,7 @@ import authRoutes from './routes/auth.js';
 import userRoutes from  './routes/user.js';
 //import postRoutes from './routes/posts.js';
 import adminRoutes from './routes/admin.js';
+import paymentRoute from './routes/paymentRoute.js'
 import { verifyToken } from './middleware/auth.js';
 //import {createPost} from './controllers/posts.js';
 import { addExpert } from './controllers/admin.js';
@@ -80,6 +81,16 @@ app.get('/',(req,res)=>{
 })
 
 
+app.use("/api", paymentRoute);
+
+app.get("/api/getkey", (req, res) =>
+  res.status(200).json({ key: process.env.RAZORPAY_API_KEY })
+);
+
+export const instance = new Razorpay({
+  key_id: process.env.RAZORPAY_API_KEY,
+  key_secret: process.env.RAZORPAY_APT_SECRET,
+});
 
 
 const PORT = process.env.PORT || 3002;

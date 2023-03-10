@@ -39,6 +39,22 @@ const UserSchema= new mongoose.Schema({
     type:Number,
     default:0
   },
+  paymentStatus:{
+    type:String,
+    
+  },
+  paymentId:{
+    type:String,
+    
+  },
+  validity:{
+    type:Number,
+    
+  },
+  paymentdate:{
+    type:String,
+   
+  }
 },
 {timestamps:true}
 );
