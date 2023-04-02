@@ -21,8 +21,12 @@ export const paymentVerification = async (req, res) => {
     req.body;
    
     const {userId,amount}=req.params;
-    const days=amount==='500000'?30:60;
-    
+        let days=30;
+       if(amount==='4000'){days=30;}
+       else if(amount==='10000'){days=90;}
+       else if(amount==='20000'){days=180;}
+       else if(amount==='40000'){days=360;}
+   
   const body = razorpay_order_id + "|" + razorpay_payment_id;
 
   const expectedSignature = crypto
