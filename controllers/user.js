@@ -53,3 +53,15 @@ export const updateSlot=async(req,res)=>{
         return res.status(404).json(err.message)
     }
 }
+
+
+export const getuserdata=async(req,res)=>{
+    const {userId}=req.params;
+    try{
+    const user=await User.findById({_id:userId});
+    console.log(user);
+    return res.status(200).json(user);
+    }catch(err){
+      return res.status(404).json(err.message)
+    }
+}

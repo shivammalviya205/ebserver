@@ -22,10 +22,10 @@ export const paymentVerification = async (req, res) => {
    
     const {userId,amount}=req.params;
         let days=30;
-       if(amount==='4000'){days=30;}
-       else if(amount==='10000'){days=90;}
-       else if(amount==='20000'){days=180;}
-       else if(amount==='40000'){days=360;}
+       if(amount==='40000'){days=30;}
+       else if(amount==='100000'){days=90;}
+       else if(amount==='200000'){days=180;}
+       else if(amount==='400000'){days=360;}
    
   const body = razorpay_order_id + "|" + razorpay_payment_id;
 
